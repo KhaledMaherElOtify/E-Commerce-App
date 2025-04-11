@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce App</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Our Store</h1>
+        <nav>
+            <ul id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="orders.html">My Orders</a></li>
+                <li><a href="login.html" id="login-link">Login</a></li>
+                <li><a href="register.html" id="register-link">Register</a></li>
+                <li><a href="#" id="logout-link" style="display:none;">Logout</a></li>
+                <li><a href="admin.html" id="admin-link" style="display:none;">Admin Panel</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <h2>Discover Amazing Products</h2>
+            <p>Shop the latest trends and best deals</p>
+            <a href="products.html" class="btn">Browse Products</a>
+        </section>
+        <section class="featured-products">
+            <h2>Featured Products</h2>
+            <div id="featured-products-container" class="products-grid"></div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 E-Commerce App. All rights reserved.</p>
+    </footer>
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>
