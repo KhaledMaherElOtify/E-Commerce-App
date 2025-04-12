@@ -31,10 +31,30 @@
                 <p>Tax: <span id="tax">$0.00</span></p>
                 <p>Total: <span id="total">$0.00</span></p>
                 <button id="checkout-btn" class="btn">Proceed to Checkout</button>
-            </div>
+                <div class="payment-options">
+                    <!-- خيارات الدفع -->
+                    <h3>اختر طريقة الدفع:</h3>
+                    
+                    <!-- PayPal -->
+                    <div class="payment-method">
+                        <input type="radio" id="paypal" name="payment" checked>
+                        <label for="paypal">PayPal</label>
+                        <div id="paypal-button-container" class="payment-details"></div>
+                    </div>
+                    
+                    <!-- Fawry -->
+                    <div class="payment-method">
+                        <input type="radio" id="fawry" name="payment">
+                        <label for="fawry">فوري</label>
+                        <div id="fawry-button-container" class="payment-details" style="display:none;">
+                            <button id="fawry-pay-btn" class="btn">الدفع عبر فوري</button>
+                        </div>
+                    </div>
+                </div>            </div>
         </section>
     </main>
     <script src="js/auth.js"></script>
+    <script src="https://atfawry.fawry.com/ECommercePlugin/scripts/FawryPay.js"></script>
     <script src="js/cart.js"></script>
 </body>
 </html>

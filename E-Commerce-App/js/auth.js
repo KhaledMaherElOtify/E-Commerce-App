@@ -294,3 +294,34 @@ function updateCartCount() {
         element.textContent = cart.reduce((total, item) => total + item.quantity, 0);
     });
 }
+
+// إدارة القائمة
+function toggleWishlist(productId) {
+    const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+    const index = wishlist.findIndex(item => item.productId === productId);
+    
+    if (index === -1) {
+        wishlist.push({ productId, date: new Date().toISOString() });
+        alert('تمت إضافة المنتج إلى قائمة الرغبات');
+    } else {
+        wishlist.splice(index, 1);
+        alert('تمت إزالة المنتج من قائمة الرغبات');
+    }
+    
+    localStorage.setItem('wishlist', JSON.stringify(wishlist));
+    updateWishlistCount();
+    
+    // تحديث الأيقونة
+    const icon = document.getElementById(`wishlist-icon-${productId}`);
+    if (icon) {
+        icon.textContent = index === -1 ? '❤️' : '🤍';
+    }
+}
+
+// تحديث العداد
+function updateWishlistCount() {
+    const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+    document.querySelectorAll('#wishlist-count').forEach(el => {
+        el.textContent = wishlist.length;
+    });
+}

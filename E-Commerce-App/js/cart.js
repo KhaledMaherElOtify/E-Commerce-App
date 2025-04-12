@@ -156,3 +156,92 @@ function checkout() {
     alert('Order placed successfully! It will be processed after admin confirmation.');
     window.location.href = 'orders.html';
 }
+// 1. تهيئة PayPal
+function initPayPal() {
+    paypal.Buttons({
+        createOrder: function(data, actions) {
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        value: calculateTotal().toFixed(2)
+                    }
+                }]
+            });
+        },
+        onApprove: function(data, actions) {
+            return actions.order.capture().then(function(details) {
+                alert('تم الدفع عبر PayPal بنجاح!');
+                completeOrder('paypal', details.id);
+            });
+        }
+    }).render('#paypal-button-container');
+}
+
+// 2. تهيئة Fawry
+function initFawry() {
+    document.getElementById('fawry-pay-btn').addEventListener('click', function() {
+        FawryPay.checkout({
+            merchantCode: 'YOUR_MERCHANT_CODE',
+            merchantRefNum: Date.now().toString(),
+            customer: {
+                name: 'Customer Name',
+                email: 'customer@example.com',
+                mobile: '01000000000'
+            },
+            paymentMethod: 'CARD',
+            amount: calculateTotal().toFixed(2),
+            returnUrl: window.location.origin + '/success.html'
+        }, function(response) {
+            if (response.statusCode === 200) {
+                window.location.href = response.paymentUrl;
+            } else {
+                alert('فشل في بدء الدفع عبر فوري');
+            }
+        });
+    });
+}
+
+// 3. تبديل بين طرق الدفع
+document.querySelectorAll('input[name="payment"]').forEach(radio => {
+    radio.addEventListener('change', function() {
+        document.getElementById('paypal-button-container').style.display = 
+            this.id === 'paypal' ? 'block' : 'none';
+        document.getElementById('fawry-button-container').style.display = 
+            this.id === 'fawry' ? 'block' : 'none';
+    });
+});
+
+// 4. إتمام الطلب
+function completeOrder(method, transactionId) {
+    const order = {
+        id: Date.now(),
+        paymentMethod: method,
+        transactionId: transactionId,
+        amount: calculateTotal(),
+        status: method === 'paypal' ? 'paid' : 'pending'
+    };
+    
+    // حفظ الطلب في localStorage
+    let orders = JSON.parse(localStorage.getItem('orders')) || [];
+    orders.push(order);
+    localStorage.setItem('orders', JSON.stringify(orders));
+    
+    // إفراغ السلة
+    localStorage.setItem('cart', JSON.stringify([]));
+    window.location.href = 'success.html';
+}
+
+// 5. تحميل المكتبات عند بدء الصفحة
+document.addEventListener('DOMContentLoaded', function() {
+    // تحميل PayPal SDK
+    const paypalScript = document.createElement('script');
+    paypalScript.src = `https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID&currency=USD`;
+    document.head.appendChild(paypalScript);
+    paypalScript.onload = initPayPal;
+    
+    // تحميل Fawry SDK
+    const fawryScript = document.createElement('script');
+    fawryScript.src = 'https://atfawry.fawry.com/ECommercePlugin/scripts/FawryPay.js';
+    document.head.appendChild(fawryScript);
+    fawryScript.onload = initFawry;
+});

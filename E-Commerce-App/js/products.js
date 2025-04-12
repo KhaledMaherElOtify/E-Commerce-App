@@ -91,12 +91,12 @@ function loadProducts() {
             <img src="${product.image}" alt="${product.name}" class="product-image">
             <div class="product-info">
                 <h3>${product.name}</h3>
-                <p class="product-category">${product.category}</p>
                 <p class="product-price">$${product.price.toFixed(2)}</p>
-                <p class="product-description">${product.description}</p>
                 <div class="product-actions">
-                    <button class="btn" onclick="addToCart(${product.id})">Add to Cart</button>
-                    <button class="btn" onclick="addToWishlist(${product.id})">Wishlist</button>
+                    <button class="btn" onclick="addToCart(${product.id})">أضف إلى السلة</button>
+                    <button class="btn wishlist-btn" onclick="toggleWishlist(${product.id})">
+                        <span id="wishlist-icon-${product.id}">❤️</span>
+                    </button>
                 </div>
             </div>
         </div>
