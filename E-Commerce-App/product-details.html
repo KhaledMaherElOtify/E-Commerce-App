@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Product Details</h1>
+        <nav>
+            <ul id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="orders.html">My Orders</a></li>
+                <li><a href="wishlist.html">Wishlist <span id="wishlist-count"> 0</span></a></li>
+              
+               
+            </ul>
+        </nav>
+    </header>
+
+    <main class="product-details-container">
+        <div class="product-images">
+            <img id="main-product-image" src="" alt="Main Product Image">
+            <div class="thumbnail-container" id="thumbnails"></div>
+        </div>
+        
+        <div class="product-info">
+            <h2 id="product-name"></h2>
+            <p class="product-price" id="product-price"></p>
+            <p class="product-category" id="product-category"></p>
+            <p class="product-stock" id="product-stock"></p>
+            <p class="product-description" id="product-description"></p>
+            
+            <div class="product-actions">
+                <button id="add-to-cart" class="btn">Add to Cart</button>
+                <button id="add-to-wishlist" class="btn">Add to Wishlist</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/product-details.js"></script>
+</body>
+</html>

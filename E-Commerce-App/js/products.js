@@ -1,19 +1,19 @@
 // Initialize products in localStorage if not exists
 if (!localStorage.getItem('products')) {
     const defaultProducts = [
-        // {
-        //     id: 1,
-        //     name: 'Smartphone X',
-        //     image: 'images/4.png',
-        //     category: 'Electronics',
-        //     price: 699.99,
-        //     description: 'Latest smartphone with advanced features',
-        //     stockQuantity: 50
-        // },
+        {
+            id: 1,
+            name: 'Smartphone X',
+            image: 'images/duck.png',
+            category: 'Electronics',
+            price: 699.99,
+            description: 'Latest smartphone with advanced features',
+            stockQuantity: 50
+        },
         {
             id: 2,
             name: 'Wireless Headphones',
-            image: 'assets/5.jpg',
+            image: 'images/hourse.png',
             category: 'Electronics',
             price: 149.99,
             description: 'Noise-cancelling wireless headphones',
@@ -22,7 +22,7 @@ if (!localStorage.getItem('products')) {
         {
             id: 3,
             name: 'Running Shoes',
-            image: 'images/badrek.jpg',
+            image: 'images/badrek.png',
             category: 'Sports',
             price: 89.99,
             description: 'Comfortable running shoes for all terrains',
@@ -31,12 +31,67 @@ if (!localStorage.getItem('products')) {
         {
             id: 4,
             name: 'Coffee Maker',
-            image: 'assets/fish.jpg',
+            image: 'https://media.4-paws.org/b/3/f/4/b3f406026e6c4c7052beda2f2489cfe07aba79b9/VIER%20PFOTEN_2017-10-20_164-3854x2667.jpg',
             category: 'Home',
             price: 59.99,
             description: 'Automatic coffee maker with timer',
             stockQuantity: 25
-        }
+        },
+         {
+            id: 5,
+            name: 'Smartphone',
+            image: 'images/4.png',
+            category: 'Electronics',
+            price: 699.99,
+            description: 'Latest smartphone with advanced features',
+            stockQuantity: 50
+        },
+        {
+            id: 6,
+            name: 'Wireless Headphones',
+            image: 'images/5.png',
+            category: 'Electronics',
+            price: 149.99,
+            description: 'Noise-cancelling wireless headphones',
+            stockQuantity: 30
+        },
+        {
+            id: 7,
+            name: 'Running Shoes',
+            image: 'images/bird.png',
+            category: 'Sports',
+            price: 89.99,
+            description: 'Comfortable running shoes for all terrains',
+            stockQuantity: 40
+        },
+        {
+            id: 8,
+            name: 'Coffee Maker',
+            image: 'images/fish.png',
+            category: 'Home',
+            price: 59.99,
+            description: 'Automatic coffee maker with timer',
+            stockQuantity: 25
+        },
+        {
+            id: 9,
+            name: 'Smartphone X',
+            image: 'images/ele.png',
+            category: 'Electronics',
+            price: 699.99,
+            description: 'Latest smartphone with advanced features',
+            stockQuantity: 50
+        },
+        {
+            id: 10,
+            name: 'Wireless Headphones',
+            image: 'images/mouse.png',
+            category: 'Electronics',
+            price: 149.99,
+            description: 'Noise-cancelling wireless headphones',
+            stockQuantity: 30
+        },
+   
     ];
     localStorage.setItem('products', JSON.stringify(defaultProducts));
 }
@@ -93,7 +148,7 @@ function loadProducts() {
                 <h3>${product.name}</h3>
                 <p class="product-price">$${product.price.toFixed(2)}</p>
                 <div class="product-actions">
-                    <button class="btn" onclick="addToCart(${product.id})">أضف إلى السلة</button>
+                    <button class="btn" onclick="addToCart(${product.id})"> add to cart </button>
                     <button class="btn wishlist-btn" onclick="toggleWishlist(${product.id})">
                         <span id="wishlist-icon-${product.id}">❤️</span>
                     </button>

@@ -295,33 +295,101 @@ function updateCartCount() {
     });
 }
 
-// إدارة القائمة
 function toggleWishlist(productId) {
     const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
     const index = wishlist.findIndex(item => item.productId === productId);
     
     if (index === -1) {
         wishlist.push({ productId, date: new Date().toISOString() });
-        alert('تمت إضافة المنتج إلى قائمة الرغبات');
+        alert('product added to wishlist');
     } else {
         wishlist.splice(index, 1);
-        alert('تمت إزالة المنتج من قائمة الرغبات');
+        alert('product removed from wishlist');
     }
     
     localStorage.setItem('wishlist', JSON.stringify(wishlist));
     updateWishlistCount();
     
-    // تحديث الأيقونة
     const icon = document.getElementById(`wishlist-icon-${productId}`);
     if (icon) {
         icon.textContent = index === -1 ? '❤️' : '🤍';
     }
 }
 
-// تحديث العداد
 function updateWishlistCount() {
     const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
     document.querySelectorAll('#wishlist-count').forEach(el => {
         el.textContent = wishlist.length;
     });
 }
+document.getElementById('add-admin-btn')?.addEventListener('click', function() {
+    const email = prompt("Enter admin email:");
+    if (!email) return;
+
+    const password = prompt("Enter admin password (min 6 characters):");
+    if (!password || password.length < 6) {
+        alert("Password must be at least 6 characters");
+        return;
+    }
+
+    const users = JSON.parse(localStorage.getItem('users')) || { admins: [], customers: [] };
+    
+    if ([...users.admins, ...users.customers].some(u => u.email === email)) {
+        alert("Email already exists!");
+        return;
+    }
+
+    users.admins.push({
+        id: Date.now(),
+        email,
+        password,
+        type: 'admin'
+    });
+
+    localStorage.setItem('users', JSON.stringify(users));
+    alert("Admin added successfully!");
+    loadAdminAdmins(); 
+});
+
+function loadAdminAdmins() {
+    const container = document.getElementById('admins-admin-container');
+    if (!container) return;
+
+    const users = JSON.parse(localStorage.getItem('users')) || { admins: [] };
+    
+    container.innerHTML = `
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                ${users.admins.map(admin => `
+                    <tr>
+                        <td>${admin.id}</td>
+                        <td>${admin.email}</td>
+                        <td>
+                            <button onclick="deleteAdmin(${admin.id})" class="delete-btn">Delete</button>
+                        </td>
+                    </tr>
+                `).join('')}
+            </tbody>
+        </table>
+    `;
+}
+
+function deleteAdmin(id) {
+    if (!confirm("Are you sure you want to delete this admin?")) return;
+    
+    const users = JSON.parse(localStorage.getItem('users'));
+    users.admins = users.admins.filter(a => a.id !== id);
+    localStorage.setItem('users', JSON.stringify(users));
+    loadAdminAdmins();
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    loadAdminAdmins();
+});
