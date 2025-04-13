@@ -482,11 +482,17 @@ footer {
 
 /* Product Details Styles */
 .product-details-container {
-    display: flex;
+    /* display: flex; */
     gap: 40px;
     padding: 30px;
     max-width: 1200px;
     margin: 0 auto;
+}
+.wishlist-left-side ,.wishlist-right-side{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 20px;
 }
 
 .product-images {
@@ -561,3 +567,117 @@ footer {
         flex-direction: column;
     }
 }
+
+/* Payment Methods */
+.payment-method {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  /* Ratings */
+  .star-rating span {
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  /* Returns */
+  .return-section {
+    margin-top: 30px;
+    padding: 20px;
+    background: #f9f9f9;
+  }
+
+  .wishlist-right-side{
+    display: flex;
+    gap: 20px;
+    flex: 1;
+    padding: 20px;
+
+  }
+  .ratings-section, .return-section{
+   display: list-item;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    padding: 20px;
+    background: #f9f9f9;
+  }
+  /* Ratings Section */
+.ratings-section {
+    margin-top: 40px;
+    padding: 20px;
+    border-top: 1px solid #eee;
+  }
+  
+  .average-rating {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  
+  .star-rating {
+    margin: 10px 0;
+    font-size: 30px;
+  }
+  
+  .star-rating span {
+    cursor: pointer;
+    margin-right: 5px;
+    transition: color 0.2s;
+  }
+  
+  .star-rating span:hover {
+    color: rgb(111, 175, 102);
+  }
+  
+  .reviews-list {
+    margin: 20px 0;
+  }
+  
+  .review {
+    padding: 15px 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .review-rating {
+    color: gold;
+    font-size: 25px;
+    margin-bottom: 5px;
+  }
+  
+  .review-meta {
+    font-size: 0.9rem;
+    color: #777;
+    margin-top: 5px;
+  }
+  
+  #review-text {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    min-height: 100px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  /* Return Section Styles */
+.return-section {
+    margin-top: 30px;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+  }
+  
+  .return-section h3 {
+    margin-bottom: 15px;
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  #return-notes {
+    min-height: 100px;
+  }

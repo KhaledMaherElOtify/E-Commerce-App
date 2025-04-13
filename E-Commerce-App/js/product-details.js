@@ -75,18 +75,3 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// These functions should be in your auth.js
-function updateCartCount() {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const count = cart.reduce((total, item) => total + item.quantity, 0);
-    document.querySelectorAll('.cart-count').forEach(el => {
-        el.textContent = count;
-    });
-}
-
-function updateWishlistCount() {
-    const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
-    document.querySelectorAll('#wishlist-count').forEach(el => {
-        el.textContent = wishlist.length;
-    });
-}

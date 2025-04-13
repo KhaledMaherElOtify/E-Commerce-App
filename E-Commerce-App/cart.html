@@ -1,61 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cart - E-Commerce App</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <header>
-        <h1>Your Shopping Cart</h1>
-        <nav>
-            <ul id="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="cart.html">Cart</a></li>
-                <li><a href="orders.html">My Orders</a></li>
-                <li><a href="wishlist.html">Wishlist <span id="wishlist-count">0</span></a></li>
-                <li><a href="login.html" id="login-link">Login</a></li>
-                <li><a href="register.html" id="register-link">Register</a></li>
-                <li><a href="#" id="logout-link" style="display:none;">Logout</a></li>
-                <li><a href="admin.html" id="admin-link" style="display:none;">Admin Panel</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section class="cart-section">
-            <div id="cart-items-container"></div>
-            <div class="cart-summary">
-                <h3>Order Summary</h3>
-                <p>Subtotal: <span id="subtotal">$0.00</span></p>
-                <p>Tax: <span id="tax">$0.00</span></p>
-                <p>Total: <span id="total">$0.00</span></p>
-                <button id="checkout-btn" class="btn">Proceed to Checkout</button>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cart - E-Commerce App</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <header>
+            <h1>Your Shopping Cart</h1>
+            <nav>
+                <ul id="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                    <li><a href="orders.html">My Orders</a></li>
+                    <li><a href="wishlist.html">Wishlist <span
+                                id="wishlist-count">0</span></a></li>
+                    <li><a href="login.html" id="login-link">Login</a></li>
+                    <li><a href="register.html"
+                            id="register-link">Register</a></li>
+                    <li><a href="#" id="logout-link"
+                            style="display:none;">Logout</a></li>
+                    <li><a href="admin.html" id="admin-link"
+                            style="display:none;">Admin Panel</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section class="cart-section">
+                <div id="cart-items-container"></div>
+                <div class="cart-summary">
+                    <h3>Order Summary</h3>
+                    <p>Subtotal: <span id="subtotal">$0.00</span></p>
+                    <p>Tax: <span id="tax">$0.00</span></p>
+                    <p>Total: <span id="total">$0.00</span></p>
+                    <button id="checkout-btn" class="btn">Proceed to
+                        Checkout</button>
+
+                </div>
+                
                 <div class="payment-options">
-                    <!-- خيارات الدفع -->
-                    <h3>اختر طريقة الدفع:</h3>
-                    
-                    <!-- PayPal -->
+                    <h3>Payment Method:</h3>
+
                     <div class="payment-method">
-                        <input type="radio" id="paypal" name="payment" checked>
-                        <label for="paypal">PayPal</label>
-                        <div id="paypal-button-container" class="payment-details"></div>
+                        <input type="radio" name="payment" id="paypal-method"
+                            checked>
+                        <label for="paypal-method">PayPal</label>
+                        <div id="paypal-container"
+                            class="payment-details"></div>
                     </div>
-                    
-                    <!-- Fawry -->
+
                     <div class="payment-method">
-                        <input type="radio" id="fawry" name="payment">
-                        <label for="fawry">فوري</label>
-                        <div id="fawry-button-container" class="payment-details" style="display:none;">
-                            <button id="fawry-pay-btn" class="btn">الدفع عبر فوري</button>
+                        <input type="radio" name="payment" id="vodafone-method">
+                        <label for="vodafone-method">Vodafone Cash</label>
+                        <div id="vodafone-container" class="payment-details"
+                            style="display:none;">
+                            <input type="tel" placeholder="Vodafone Cash Number"
+                                id="vodafone-number">
                         </div>
                     </div>
-                </div>            </div>
-        </section>
-    </main>
-    <script src="js/auth.js"></script>
-    <script src="https://atfawry.fawry.com/ECommercePlugin/scripts/FawryPay.js"></script>
-    <script src="js/cart.js"></script>
-</body>
+
+                    <div class="payment-method">
+                        <input type="radio" name="payment" id="fawry-method">
+                        <label for="fawry-method">Fawry</label>
+                        <div id="fawry-container" class="payment-details"
+                            style="display:none;">
+                            <p>You'll receive payment code via SMS</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+        <script src="js/auth.js"></script>
+        <script
+            src="https://atfawry.fawry.com/ECommercePlugin/scripts/FawryPay.js"></script>
+        <script src="js/cart.js"></script>
+        <script src="js/payment.js"></script>
+        <script src="js/ratings.js"></script>
+        <script src="js/returns.js"></script>
+    </body>
 </html>

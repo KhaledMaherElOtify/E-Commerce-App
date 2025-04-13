@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce App</title>
+
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+     <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Welcome to Our Store</h1>
+        <nav>
+            <ul id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="orders.html">My Orders</a></li>
+                <li><a href="login.html" id="login-link">Login</a></li>
+                <li><a href="register.html" id="register-link">Register</a></li>
+                <li><a href="#" id="logout-link" style="display:none;">Logout</a></li>
+                <li><a href="admin.html" id="admin-link" style="display:none;">Admin Panel</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <h2>Discover Amazing Products</h2>
+            <p>Shop the latest trends and best deals</p>
+            <a href="products.html" class="btn">Browse Products</a>
+        </section>
+        <section class="featured-products">
+            <h2>Featured Products</h2>
+            <div id="featured-products-container" class="products-grid"></div>
+        </section>
+
+        <!-- Mahmoud's part -->
+        <!-- categories -->
+         <section class="container">
+            <div class="row">
+                <div class="categories">
+                    <div class="categorie mySwiper">
+
+                        <div class="categorieTop">
+                            <h3 class="categorieName">Categorie 01 <span>Mobile Phone</span></h3>
+                        </div>
+
+                        <div class="products categorie01 swiper-wrapper">
+
+                            
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+
+                    </div>
+                </div>
+                
+            </div>
+ 
+            <div class="row">
+                <div class="categories">
+                    <div class="categorie mySwiper">
+
+                        <div class="categorieTop">
+                            <h3 class="categorieName">Categorie 02 <span>Electronics</span></h3>
+                        </div>
+
+                        <div class="products categorie02 swiper-wrapper">
+                        </div>
+
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+
+                    </div>
+                </div>
+
+                
+            </div>
+
+            <div class="row">
+                <div class="categories">
+                    <div class="categorie mySwiper">
+
+                        <div class="categorieTop">
+                            <h3 class="categorieName">Categorie 02 <span>TV</span></h3>
+                        </div>
+
+                        <div class="products categorie03 swiper-wrapper">
+                        </div>
+
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="categories">
+                        <div class="categorie mySwiper">
+    
+                            <div class="categorieTop">
+                                <h3 class="categorieName">Categorie 04 <span>Smart Watches</span></h3>
+                            </div>
+    
+                            <div class="products categorie04 swiper-wrapper">
+                            </div>
+    
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+    
+                        </div>
+                    </div>
+         </section>
+
+    </main>
+    <footer>
+        <p>&copy; 2023 E-Commerce App. All rights reserved.</p>
+    </footer>
+
+    <!-- bootstrap js -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+
+    <script>
+        var swiper = new Swiper(".categorie", {
+          slidesPerView: 1,
+          spaceBetween: 30,
+          keyboard: {
+            enabled: true,
+          },
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+          slidesPerView: 5,
+          autoplay:{
+           delay: 3000,
+          },
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+          loop: true
+        });
+      </script>
+
+
+
+
+
+    <script src="js/bootstrap.min.js"></script>
+
+
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+
+</html>
