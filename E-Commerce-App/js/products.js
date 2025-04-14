@@ -3,62 +3,62 @@ if (!localStorage.getItem('products')) {
     const defaultProducts = [
         {
             id: 1,
-            name: 'Smartphone X',
-            image: 'images/duck.png',
+            name: 'iphone 13',
+            image: 'images/product/1.png',
             category: 'Electronics',
-            price: 699.99,
-            description: 'Latest smartphone with advanced features',
+            price: 669.99,
+            description: 'SAMSUNG 55 Inch UHD 4K Smart TV With Receiver',
             stockQuantity: 50
         },
         {
             id: 2,
-            name: 'Wireless Headphones',
-            image: 'images/hourse.png',
+            name: 'Galaxy Tab',
+            image: 'images/product/2.png',
             category: 'Electronics',
             price: 149.99,
-            description: 'Noise-cancelling wireless headphones',
+            description: 'Samsung 16GB Galaxy Tab 3 10.1" Wi-Fi Tablet GT-P5210GNYXAR',
             stockQuantity: 30
         },
         {
             id: 3,
-            name: 'Running Shoes',
-            image: 'images/badrek.png',
-            category: 'Sports',
-            price: 89.99,
-            description: 'Comfortable running shoes for all terrains',
-            stockQuantity: 40
+            name: 'Canon EOS Camera',
+            image: 'images/product/3.png',
+            category: 'Electronics',
+            price: 149.99,
+            description: 'Canon EOS RP Mirrorless Camera',
+            stockQuantity: 30
         },
         {
             id: 4,
-            name: 'Coffee Maker',
-            image: 'https://media.4-paws.org/b/3/f/4/b3f406026e6c4c7052beda2f2489cfe07aba79b9/VIER%20PFOTEN_2017-10-20_164-3854x2667.jpg',
-            category: 'Home',
-            price: 59.99,
-            description: 'Automatic coffee maker with timer',
-            stockQuantity: 25
-        },
-         {
-            id: 5,
-            name: 'Smartphone',
-            image: 'images/4.png',
+            name: 'SAMSUNG 55',
+            image: 'images/product/4.png',
             category: 'Electronics',
-            price: 699.99,
-            description: 'Latest smartphone with advanced features',
-            stockQuantity: 50
+            price: 149.99,
+            description: 'Inch UHD 4K Smart TV With Receiver',
+            stockQuantity: 30
         },
         {
-            id: 6,
-            name: 'Wireless Headphones',
-            image: 'images/5.png',
+            id: 5,
+            name: 'Samsung TV',
+            image: 'images/product/5.png',
             category: 'Electronics',
             price: 149.99,
             description: 'Noise-cancelling wireless headphones',
             stockQuantity: 30
         },
         {
+            id: 6,
+            name: 'Redmi 13C ',
+            image: 'images/product/6.png',
+            category: 'Electronics',
+            price: 149.99,
+            description: 'Redmi 13C Dual SIM with 6GB RAM',
+            stockQuantity: 30
+        },
+        {
             id: 7,
-            name: 'Running Shoes',
-            image: 'images/bird.png',
+            name: 'Lap',
+            image: 'images/product/7.png',
             category: 'Sports',
             price: 89.99,
             description: 'Comfortable running shoes for all terrains',
@@ -66,8 +66,8 @@ if (!localStorage.getItem('products')) {
         },
         {
             id: 8,
-            name: 'Coffee Maker',
-            image: 'images/fish.png',
+            name: 'Infinix Hot 40i',
+            image: 'images/product/8.png',
             category: 'Home',
             price: 59.99,
             description: 'Automatic coffee maker with timer',

@@ -40,36 +40,19 @@
 
                 </div>
                 
-                <div class="payment-options">
-                    <h3>Payment Method:</h3>
-
+                <div class="payment-section">
+                    <h3>Payment Method</h3>
+                    
+                    <!-- Vodafone Cash Option -->
                     <div class="payment-method">
-                        <input type="radio" name="payment" id="paypal-method"
-                            checked>
-                        <label for="paypal-method">PayPal</label>
-                        <div id="paypal-container"
-                            class="payment-details"></div>
+                      <input type="radio" name="payment" id="vodafone-method" checked>
+                      <label for="vodafone-method">Vodafone Cash</label>
+                      <div id="vodafone-container" class="payment-details">
+                        <input type="tel" id="vodafone-number" placeholder="Enter Vodafone Cash number" required>
+                        <button id="confirm-vodafone" class="btn">Confirm Payment</button>
+                      </div>
                     </div>
-
-                    <div class="payment-method">
-                        <input type="radio" name="payment" id="vodafone-method">
-                        <label for="vodafone-method">Vodafone Cash</label>
-                        <div id="vodafone-container" class="payment-details"
-                            style="display:none;">
-                            <input type="tel" placeholder="Vodafone Cash Number"
-                                id="vodafone-number">
-                        </div>
-                    </div>
-
-                    <div class="payment-method">
-                        <input type="radio" name="payment" id="fawry-method">
-                        <label for="fawry-method">Fawry</label>
-                        <div id="fawry-container" class="payment-details"
-                            style="display:none;">
-                            <p>You'll receive payment code via SMS</p>
-                        </div>
-                    </div>
-                </div>
+                  </div>
             </section>
 
         </main>

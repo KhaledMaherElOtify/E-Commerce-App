@@ -1,67 +1,48 @@
-// Initialize all payment methods
-function initPaymentMethods() {
-    // PayPal
-    paypal.Buttons({
-      createOrder: (data, actions) => {
-        return actions.order.create({
-          purchase_units: [{
-            amount: {
-              value: calculateTotal().toFixed(2),
-              currency_code: 'USD'
-            }
-          }]
-        });
-      },
-      onApprove: (data, actions) => {
-        return actions.order.capture().then(completePayment);
-      }
-    }).render('#paypal-container');
+document.addEventListener('DOMContentLoaded', function() {
+  // Vodafone Cash Payment Handler
+  document.getElementById('confirm-vodafone')?.addEventListener('click', processVodafonePayment);
+});
+
+function processVodafonePayment() {
+  const phoneNumber = document.getElementById('vodafone-number').value.trim();
   
-    // Payment method switcher
-    document.querySelectorAll('input[name="payment"]').forEach(radio => {
-      radio.addEventListener('change', function() {
-        document.querySelectorAll('.payment-details').forEach(div => {
-          div.style.display = 'none';
-        });
-        document.getElementById(`${this.id.split('-')[0]}-container`).style.display = 'block';
-      });
-    });
+  // Validate phone number
+  if (!phoneNumber || !/^01[0-9]{9}$/.test(phoneNumber)) {
+    alert('Please enter a valid Vodafone Egypt number (e.g., 01012345678)');
+    return;
   }
+
+  const order = {
+    id: Date.now(),
+    userId: JSON.parse(localStorage.getItem('currentUser'))?.id,
+    items: JSON.parse(localStorage.getItem('cart')) || [],
+    total: calculateTotal(),
+    paymentMethod: 'vodafone_cash',
+    transactionId: `VOD-${Date.now()}`,
+    phoneNumber: phoneNumber,
+    status: 'pending',
+    date: new Date().toISOString()
+  };
+
+  // Save order
+  const orders = JSON.parse(localStorage.getItem('orders')) || [];
+  orders.push(order);
+  localStorage.setItem('orders', JSON.stringify(orders));
   
-  // Handle checkout
-  function proceedToPayment() {
-    const method = document.querySelector('input[name="payment"]:checked').id.split('-')[0];
-    
-    switch(method) {
-      case 'paypal':
-        // Handled automatically
-        break;
-      case 'vodafone':
-        processVodafonePayment();
-        break;
-      case 'fawry':
-        processFawryPayment();
-        break;
-    }
-  }
+  // Clear cart
+  localStorage.setItem('cart', JSON.stringify([]));
   
-  function processVodafonePayment() {
-    const phone = document.getElementById('vodafone-number').value;
-    if (!phone) {
-      alert('Please enter Vodafone Cash number');
-      return;
-    }
-    completePayment({
-      method: 'vodafone',
-      transactionId: `VOD-${Date.now()}`,
-      phone: phone
-    });
-  }
-  
-  function processFawryPayment() {
-    completePayment({
-      method: 'fawry',
-      transactionId: `FAWRY-${Date.now()}`
-    });
-    alert('You will receive payment code via SMS');
-  }
+  // Show confirmation
+  alert(`Payment request sent to ${phoneNumber}\nOrder ID: ${order.id}`);
+  window.location.href = 'orders.html';
+}
+
+// Helper function to calculate total
+function calculateTotal() {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const products = JSON.parse(localStorage.getItem('products')) || [];
+  return cart.reduce((total, item) => {
+    const product = products.find(p => p.id === item.productId);
+    return total + (product?.price || 0) * item.quantity;
+  }, 0);
+}

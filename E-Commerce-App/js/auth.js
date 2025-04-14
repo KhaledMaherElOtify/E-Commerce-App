@@ -8,7 +8,9 @@ const USER_TYPES = {
 if (!localStorage.getItem('users')) {
     const defaultUsers = {
         admins: [
-            { id: 1, email: 'admin@example.com', password: 'admin123', name: 'Admin User', type: USER_TYPES.ADMIN }
+            { id: 1, email: 'Khaled@gmail.com', password: '111111', name: 'Admin User', type: USER_TYPES.ADMIN },
+            { id: 2, email: 'iti@gmail.com', password: '000000', name: 'Admin User', type: USER_TYPES.ADMIN }
+
         ],
         customers: []
     };
@@ -217,7 +219,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Load featured products
 function loadFeaturedProducts() {
     const products = JSON.parse(localStorage.getItem('products')) || [];
-    const featuredProducts = products.slice(0, 4); // Get first 4 products as featured
+    const featuredProducts = products.slice(0, 10); // Get first 10 products as featured
     const container = document.getElementById('featured-products-container');
     
     if (featuredProducts.length === 0) {

@@ -144,3 +144,4 @@ function viewOrderDetails(orderId) {
         }\n\nSubtotal: $${order.subtotal.toFixed(2)}\nTax: $${order.tax.toFixed(2)}\nTotal: $${order.total.toFixed(2)}`);
     }
 }
+

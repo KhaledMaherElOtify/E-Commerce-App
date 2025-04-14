@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us </title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800&display=swap');
+      *{
+          padding: 0;
+          margin: 0;
+          box-sizing: border-box;
+          text-decoration: none;
+          list-style: none;
+          font-family: 'Rubik', sans-serif;
+      }
+      
+      
+     
+      body{
+          background: #f5f6f9;
+          margin-top: 80px;
+      }
+      
+      h1,h2,h3,h4,h5,h6{
+          color: var(--dark-color);
+      }
+      
+      p{
+          color: var(--parg-color);
+      }
+      .container{
+          width: 75%;
+          margin: auto;
+      }
+      @media (max-width:1500px) {
+          .container{
+              width: 90%;
+          }
+      }
+      
+      
+      /* header */
+      
+      header{
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          background-color: #1ba6f0;
+          color: white;
+          padding: 1rem;
+       
+          z-index: 1000;
+      }
+      .navbar {
+        width: 100%; /* تأكد من أن الـ navbar يغطي العرض بالكامل */
+        display: flex;
+        /* justify-content: center; توسيط المحتوى أفقيًا */
+        /* background-color: #1ba6f0;; */
+    }
+
+    .navbar ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+    }
+
+    .navbar ul li {
+        padding: 14px 20px;
+    }
+
+    .navbar ul li a {
+        color: white;
+        text-decoration: none;
+    }
+        .hero {
+            text-align: center;
+            padding: px 0;
+          
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #222;
+        }
+
+        /* Story Section */
+        .story {
+            padding: 40px 0;
+        }
+
+        .story h2 {
+            font-size: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #333;
+        }
+
+        .story p {
+            margin-bottom: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        /* Stats Section */
+        .stats {
+            /* background-color: #1ba6f0;; */
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            padding: 20px;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .stat-number {
+            font-size: 42px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 16px;
+        }
+
+        /* Team Section */
+        .team {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .team h2 {
+            font-size: 30px;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .team-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .team-member {
+            width: 250px;
+            background: #f9f9f9;
+            padding: 30px 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+        }
+
+        .team-member img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 5px solid #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .team-member h3 {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .team-member p {
+            color: #777;
+            font-size: 16px;
+        }
+
+        .social-links {
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin: 0 5px;
+            color:#85d0f8;
+            background: #fff;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: #85d0f8;
+            color: #fff;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 60px 0;
+            background-color: #f9f9f9;
+        }
+
+        .features-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .feature {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+            padding: 30px 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .feature i {
+            font-size: 40px;
+            color: #85d0f8;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .feature h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .feature p {
+            color: #777;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .stats-container, .team-container, .features-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .stat-item, .feature {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+
+    <div class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="cart.html">Cart</a></li>
+            <li><a href="orders.html">My Orders</a></li>
+            <li><a href="wishlist.html">Wishlist <span
+                        id="wishlist-count">0</span></a></li>
+            <li><a href="contact.html">Contact</a></li>
+          
+          
+        </ul>
+    </div>
+       
+</header>
+    <!-- Hero Section -->
+    
+
+    <!-- Story Section -->
+    <section class="story">
+        <div class="container">
+            <h2 style="margin-top:5px;">Welcome to Bazary</h2>
+            <center><img src="images/store.jpg" alt="" height="300px" width="600px" style="margin-bottom: 20px;"></center>
+            
+            <section class="hero">
+              <div class="container">
+                  <h1>Our Story</h1>
+              </div>
+          </section>
+      
+            <p>Launched in 2025,Bazary is Egyption premier online shopping marketplace with an active presence in Cairo. Supported by wide range of tailored marketing, data and service solutions, Bazary has 10,500 sellers and 300 brands and serves 3 millions customers across the region.</p>
+            <p>Bazary has more than 1 Million products to offer, growing at a very fast. Bazary offers a diverse assortment in categories ranging from consumer.</p>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number">10.5k</div>
+                    <div class="stat-label">Sellers active our site</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">33k</div>
+                    <div class="stat-label">Magnitfly Product Just Sale</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">45.5k</div>
+                    <div class="stat-label">Customer active in our site</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">25k</div>
+                    <div class="stat-label">Anudl gross sale in our site</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team">
+        <div class="container">
+            <h2>Our Team</h2>
+            <div class="team-container">
+                <div class="team-member">
+                    <img src="images/1.jpg" alt="Mahmoud">
+                    <h3>Mahmoud</h3>
+                    <p>Founder & Chairman</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="team-member">
+                  <img src="images/khaled.png" alt="khaled">
+                  <h3>Khaled</h3>
+                  <p>Founder & Chairman</p>
+                  <div class="social-links">
+                      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                      <a href="#"><i class="fab fa-twitter"></i></a>
+                  </div>
+              </div>
+                <div class="team-member">
+                    <img src="images/3.jpg" alt="Mayar">
+                    <h3>Mayar</h3>
+                    <p>Managing Director</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <img src="images/4.jpg" alt="Hager">
+                    <h3>Hager</h3>
+                    <p>Product Designer</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="features-container">
+                <div class="feature">
+                    <i class="fas fa-truck"></i>
+                    <h3>FREE AND FAST DELIVERY</h3>
+                    <p>Free delivery for all orders over $140</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-headset"></i>
+                    <h3>24/7 CUSTOMER SERVICE</h3>
+                    <p>Friendly 24/7 customer support</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <h3>MONEY BACK GUARANTEE</h3>
+                    <p>We return money within 30 days</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Bazary. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple animation for stats counter
+        document.addEventListener('DOMContentLoaded', function() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            
+            statNumbers.forEach(stat => {
+                const target = parseInt(stat.textContent.replace('k', '000'));
+                const duration = 2000; // 2 seconds
+                const step = target / (duration / 16); // 60fps
+                let current = 0;
+                
+                const updateCounter = () => {
+                    current += step;
+                    if (current < target) {
+                        stat.textContent = Math.floor(current / 1000) + 'k';
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        stat.textContent = (target / 1000) + 'k';
+                    }
+                };
+                
+                // Start animation when stats section is in view
+                const observer = new IntersectionObserver((entries) => {
+                    if (entries[0].isIntersecting) {
+                        updateCounter();
+                        observer.unobserve(stat.parentElement.parentElement.parentElement);
+                    }
+                });
+                
+                observer.observe(document.querySelector('.stats'));
+            });
+        });
+    </script>
+</body>
+</html>
